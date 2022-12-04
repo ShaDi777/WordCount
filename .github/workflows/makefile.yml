@@ -24,7 +24,8 @@ jobs:
         
     # run tests
     - name: RunTests
-      run: home/runner/work/WordCount/WordCount/build/tests
+      run: cmake --build . --target tests && ctest -V
+      #run: home/runner/work/WordCount/WordCount/build/tests
       
     # upload exe
     - name: Create EXE

@@ -24,8 +24,20 @@ jobs:
         
     # run tests
     - name: RunTests
-      run: ctest -V
-      #run: home/runner/work/WordCount/WordCount/build/tests
+      shell: cmake -P {0}
+      run: |
+        include(ProcessorCount)
+        ProcessorCount(N)
+
+        execute_process(
+          COMMAND ${ { steps.cmake_and_ninja.outputs.cmake_dir } }/ctest -j ${N}
+          WORKING_DIRECTORY build
+          RESULT_VARIABLE result
+        )
+        if (NOT result EQUAL 0)
+          message(FATAL_ERROR "Running tests failed!")
+        endif()
+    #run: home/runner/work/WordCount/WordCount/build/tests
       
     # upload exe
     - name: Create EXE

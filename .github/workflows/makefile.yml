@@ -24,7 +24,7 @@ jobs:
         
     # run tests
     - name: RunTests
-      run: home/runner/work/WordCount/build/tests/tests
+      run: home/runner/work/WordCount/WordCount/build/tests/tests
       
     # upload exe
     - name: Create EXE

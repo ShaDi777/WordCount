@@ -17,3 +17,4 @@ _**WordCount.exe [OPTION] filename [filename2,.....]**_
 
 Формат вывода (без заданных опций):
 lines words bytes chars filename
+new line
